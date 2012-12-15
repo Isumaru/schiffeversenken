@@ -14,9 +14,9 @@
     <VCTargetsPath Condition="'$(VCTargetsPath11)' != '' and '$(VSVersion)' == '' and '$(VisualStudioVersion)' == ''">$(VCTargetsPath11)</VCTargetsPath>
   </PropertyGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{50047011-BFBF-4037-9058-D8AF521E0A37}</ProjectGuid>
+    <ProjectGuid>{069A5E8A-5121-4A8C-BE36-23950705FF3D}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ConsoleApplication1</RootNamespace>
+    <RootNamespace>Schiffeversenken</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -79,8 +79,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Hallo.c" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="schiff.c" />
+    <ClCompile Include="spielfeld.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include=".\clearScreen.h" />
+    <ClInclude Include="schiff.h" />
+    <ClInclude Include="spielfeld.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
