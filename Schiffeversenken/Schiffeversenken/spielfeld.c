@@ -49,21 +49,21 @@ struct spielfeld* setSchiff(struct spielfeld*a,struct schiff*b,char start[2],cha
 			if(a->meinFeld[xo][y+i]!=0)
 				return NULL;	
 		for(i=0;i<b->size;i++)
-			a->meinFeld[xo][y+i]=b->ID;
+			a->meinFeld[xo][y+i]=char(b->ID);
 	}
 	if(ws[0]=='s'){
 		for(i=0;i<b->size;i++)
 			if(a->meinFeld[xo+i][y]!=0)
 				return NULL;
 		for(i=0;i<b->size;i++)
-			a->meinFeld[xo+i][y]=b->ID;
+			a->meinFeld[xo+i][y]=char(b->ID);
 	}
 	return a;
 }
-int ** intialiseFeld(int size){
+char ** intialiseFeld(int size){
 	//Code von Galileo Computing C von A bis Z
 	int i,j;
-	int ** matrix;
+	char ** matrix;
 	/* Speicher reservieren für die int-Zeiger */
 	 matrix = malloc(size * sizeof(int *));
 	 if(NULL == matrix) {
@@ -82,12 +82,12 @@ int ** intialiseFeld(int size){
 	  //Befüllen des Arrays mit 0en
 	  for (i = 0; i <size; i++)
 		for (j = 0; j <size; j++)
-			matrix[i][j] = 0; 
+			matrix[i][j] = '0'; 
 	  return matrix;
 }
 struct spielfeld *makeSpielfeld(int size){
-	int** meinFeld=intialiseFeld(size);
-	int** seinFeld=intialiseFeld(size);
+	char** meinFeld=intialiseFeld(size);
+	char** seinFeld=intialiseFeld(size);
 	struct spielfeld *myspielfeld;
 	myspielfeld = malloc (sizeof(struct spielfeld));
 	myspielfeld->meinFeld=meinFeld;
@@ -97,7 +97,7 @@ struct spielfeld *makeSpielfeld(int size){
 }
 
 //Ausgabe des Spielfeldes in der Konsole
-void showSpielfeld(int length,int **myArray){
+void showSpielfeld(int length,char **myArray){	
 	int i,z,x;
 	//schleife für y achse 
 	for(z=0;z<length+2;z++){
@@ -127,10 +127,10 @@ void showSpielfeld(int length,int **myArray){
 				else
 					//Ausgabe der Felder des Arrays
 					if(z<length+1&&i<length)
-					printf("| %d",myArray[z-1][i-1]);
+					printf("| %d",char(myArray[z-1][i-1]));
 					else
 						if((z<length+1&&i<length+1))
-							printf("| %d|",myArray[z-1][i-1]);
+							printf("| %d|",char(myArray[z-1][i-1]));
 			}
 			//Ausgabe der untersten Zeile
 			if(z==length+1){
