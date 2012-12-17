@@ -15,6 +15,7 @@ int main(){
 	struct schiff **sp3schlacht,**sp3kreuzer,**sp3zerstoerer,**sp3uboot;
 	int z,id,i,fieldsize,run=1,schlachta,schlachtg,kreuzera,kreuzerg,zerstoerera,zerstoererg,ubootg,uboota;
 	// "GUI" 
+	printf("%d",(int)'x');
 	printf("\t\tSchiffeversenken\n\n");
 	printf("Spieler 1 geben Sie Ihren Namen ein: ");
 	scanf("%s",sp1name);
@@ -62,10 +63,12 @@ int main(){
 	}
 	printf("Anzahl der Zerstoerer: ");
 	scanf("%d",&zerstoerera);
+	//Speicherplatz für Schiffe registrieren
 	sp1zerstoerer= malloc(zerstoerera * sizeof(int *));
 	sp2zerstoerer= malloc(zerstoerera * sizeof(int *));
 	printf("Groesse der Zerstoerer?: ");
 	scanf("%d",&zerstoererg);
+	//Initialiserung der Schiffe und setzen der ID
 	for(i=0;i<zerstoerera;i++){
 		sp1zerstoerer[i]=makeSchiff(zerstoererg,zerstoererg);
 		sp2zerstoerer[i]=makeSchiff(zerstoererg,zerstoererg);
@@ -169,6 +172,9 @@ int main(){
 		}
 		showSpielfeld(fieldsize,sp3feld->meinFeld);
 	}
+	CLEAR;
+	printf("DAS SPIEL BEGINNT\n%s ist an der Reihe\n Enter-Taste druecken um zu Starten",sp1->name);
+	getchar();
 	}
 	getchar();
 	getchar();

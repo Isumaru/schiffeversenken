@@ -6,11 +6,38 @@
 //struct spielfeld c;
 //struct spielfeld *d;
 const char alp[]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+int trifftSchuss(struct spielfeld*his,char schuss[2]){
+	int xo,i,y=atoi(&schuss[1])-1;
+	for(i=0;i<sizeof(alp);i++){
+		if(alp[i]==schuss[0]){
+			xo=i;
+			i=sizeof(alp);
+		}
+	}
+	//Uebrpruefen ob das Feld Wasser ist
+	if(his->meinFeld[xo][y]==0)
+		return 0;
+	return 1;
+}
+struct spielfeld* shootSchiff(struct spielfeld*my,struct spielfeld*his,char schuss[2]){
+	int xo,i,y=atoi(&schuss[1])-1;
+	for(i=0;i<sizeof(alp);i++){
+		if(alp[i]==schuss[0]){
+			xo=i;
+			i=sizeof(alp);
+		}
+	}
+	if(trifftSchuss(his,schuss)==0){
+		//my->seinFeld[xo][y]==x
+	}
+			return NULL;
+
+
+}
 struct spielfeld* setSchiff(struct spielfeld*a,struct schiff*b,char start[2],char ws[1]){
 	int xo,i,y=atoi(&start[1])-1;
 	//c=*a;
 	//d=&c;
-	printf("Start %c\n",start[0]);
 	for(i=0;i<sizeof(alp);i++){
 		if(alp[i]==start[0]){
 			xo=i;
@@ -87,7 +114,7 @@ void showSpielfeld(int length,int **myArray){
 					if(z==0&&i==length&&i>9)
 						printf("|%d|",i);
 					else{
-						if(z==0&&i<9)
+						if(z==0&&i<=9)
 							printf("| %d",i);	
 						if(z==0&&i>9)
 							printf("|%d",i);
@@ -98,10 +125,11 @@ void showSpielfeld(int length,int **myArray){
 				if(i==0)
 					printf("\n%c",alp[z-1]);
 				else
-					if(z<length+1&&i<length-1)
+					//Ausgabe der Felder des Arrays
+					if(z<length+1&&i<length)
 					printf("| %d",myArray[z-1][i-1]);
 					else
-						if(z<length+1&&i<length)
+						if((z<length+1&&i<length+1))
 							printf("| %d|",myArray[z-1][i-1]);
 			}
 			//Ausgabe der untersten Zeile
@@ -109,11 +137,10 @@ void showSpielfeld(int length,int **myArray){
 					for(x=0;x<length+1;x++){
 						if(x==0)
 							printf("\n--");
-						if(x>0&&x<length-1)
+						if(x>0&&x<length)
 							printf("---");
 					}
-					if(length<9)
-						printf("---");
+
 					printf("--'\n");
 			}
 	}
