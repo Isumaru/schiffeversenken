@@ -79,13 +79,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.c" />
+    <ClCompile Include="konsolenAusgabe.c" />
+    <ClCompile Include=".\main2.c" />
     <ClCompile Include="schiff.c" />
+    <ClCompile Include="spieler.c" />
     <ClCompile Include="spielfeld.c" />
+    <ClCompile Include="test.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".\clearScreen.h" />
     <ClInclude Include="schiff.h" />
+    <ClInclude Include="spieler.h" />
     <ClInclude Include="spielfeld.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
