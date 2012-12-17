@@ -1,13 +1,43 @@
 #include "spielfeld.h"
 #include <stdio.h>
 #include <stdlib.h>
-
-//Deklaration
-void setTreffer(int x,int y);
-int ** letsMalloc(int size){
+#include "schiff.h"
+#include <string.h>
+//struct spielfeld c;
+//struct spielfeld *d;
+const char alp[]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+struct spielfeld* setSchiff(struct spielfeld*a,struct schiff*b,char start[2],char ws[1]){
+	int xo,i,y=atoi(&start[1])-1;
+	//c=*a;
+	//d=&c;
+	printf("Start %c\n",start[0]);
+	for(i=0;i<sizeof(alp);i++){
+		if(alp[i]==start[0]){
+			xo=i;
+			i=sizeof(alp);
+		}
+	}
+	if(ws[0]=='w'){
+		for(i=0;i<b->size;i++)
+			if(a->meinFeld[xo][y+i]!=0)
+				return NULL;	
+		for(i=0;i<b->size;i++)
+			a->meinFeld[xo][y+i]=b->ID;
+	}
+	if(ws[0]=='s'){
+		for(i=0;i<b->size;i++)
+			if(a->meinFeld[xo+i][y]!=0)
+				return NULL;
+		for(i=0;i<b->size;i++)
+			a->meinFeld[xo+i][y]=b->ID;
+	}
+	return a;
+}
+int ** intialiseFeld(int size){
+	//Code von Galileo Computing C von A bis Z
 	int i,j;
 	int ** matrix;
-	/* Speicher reservieren für die int-Zeiger (=zeile) */
+	/* Speicher reservieren für die int-Zeiger */
 	 matrix = malloc(size * sizeof(int *));
 	 if(NULL == matrix) {
 		printf("Kein virtueller RAM mehr vorhanden ... !");
@@ -28,22 +58,19 @@ int ** letsMalloc(int size){
 			matrix[i][j] = 0; 
 	  return matrix;
 }
-const char alp[]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-int getZufall(){
-	return (rand() % 100 + 1);
+struct spielfeld *makeSpielfeld(int size){
+	int** meinFeld=intialiseFeld(size);
+	int** seinFeld=intialiseFeld(size);
+	struct spielfeld *myspielfeld;
+	myspielfeld = malloc (sizeof(struct spielfeld));
+	myspielfeld->meinFeld=meinFeld;
+	myspielfeld->seinFeld=seinFeld;
+	myspielfeld->size=size;
+	return myspielfeld;
 }
-int ** start(int size){
-	int** myArray=letsMalloc(size);
-	return myArray; 
-}
-int ** addSchiff(int **myArray,int schiffg,int schiffa){
-	char a[2];
-	char e[2];
-		
-							
-		        
-}
-void createSpielfeld(int length,int **myArray){
+
+//Ausgabe des Spielfeldes in der Konsole
+void showSpielfeld(int length,int **myArray){
 	int i,z,x;
 	//schleife für y achse 
 	for(z=0;z<length+2;z++){
@@ -91,3 +118,4 @@ void createSpielfeld(int length,int **myArray){
 			}
 	}
 }
+

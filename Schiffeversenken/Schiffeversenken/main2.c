@@ -1,9 +1,10 @@
+/*
 #include <stdio.h>
 #include "spielfeld.h"
 #include <string.h>
 #include <stdlib.h>
 #include "clearScreen.h"
-int main (){
+int mains(){
 	//Deklaration
 	int fieldsize=0,z,schlacht,schlachta,schlachtg,kreuzer,kreuzera,kreuzerg,zerstoerer,zerstoerera,zerstoererg,ubootg,uboot,uboota;
 	char a[1];
@@ -42,4 +43,4 @@ int main (){
 	getchar();
 	return 0;
 }
-
+*/
