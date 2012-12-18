@@ -1,57 +1,14 @@
-﻿Build started 12/17/2012 9:49:47 PM.
-     1>Project "C:\Users\Michi\Favorites\Documents\GitHub\schiffeversenken\Schiffeversenken\Schiffeversenken\Schiffeversenken.vcxproj" on node 2 (Build target(s)).
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TC /analyze- /errorReport:prompt .\main2.c spielfeld.c test.c
-         test.c
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(21): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(24): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(28): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(32): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(41): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(45): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(53): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(57): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(65): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(70): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(79): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(83): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(111): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(113): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(128): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(130): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(145): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(147): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(162): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(164): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(290) : see declaration of 'scanf'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\test.c(16): warning C4101: 'id' : unreferenced local variable
+﻿Build started 12/19/2012 12:11:17 AM.
+     1>Project "C:\Users\Michi\Favorites\Documents\schiffeversenken\Schiffeversenken\Schiffeversenken\Schiffeversenken.vcxproj" on node 2 (Build target(s)).
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TC /analyze- /errorReport:prompt spielfeld.c
          spielfeld.c
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\spielfeld.c(52): error C2059: syntax error : 'type'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\spielfeld.c(59): error C2059: syntax error : 'type'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\spielfeld.c(130): error C2059: syntax error : 'type'
-     1>c:\users\michi\favorites\documents\github\schiffeversenken\schiffeversenken\schiffeversenken\spielfeld.c(133): error C2059: syntax error : 'type'
-         main2.c
-         Generating Code...
-     1>Done Building Project "C:\Users\Michi\Favorites\Documents\GitHub\schiffeversenken\Schiffeversenken\Schiffeversenken\Schiffeversenken.vcxproj" (Build target(s)) -- FAILED.
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Michi\Favorites\Documents\schiffeversenken\Schiffeversenken\Debug\Schiffeversenken.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Michi\Favorites\Documents\schiffeversenken\Schiffeversenken\Debug\Schiffeversenken.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Michi\Favorites\Documents\schiffeversenken\Schiffeversenken\Debug\Schiffeversenken.lib" /MACHINE:X86 Debug\schiff.obj
+         Debug\spieler.obj
+         Debug\spielfeld.obj
+         Debug\ausgabe.obj
+         Schiffeversenken.vcxproj -> C:\Users\Michi\Favorites\Documents\schiffeversenken\Schiffeversenken\Debug\Schiffeversenken.exe
+     1>Done Building Project "C:\Users\Michi\Favorites\Documents\schiffeversenken\Schiffeversenken\Schiffeversenken\Schiffeversenken.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:00.47
+Time Elapsed 00:00:00.43

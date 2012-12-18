@@ -24,13 +24,7 @@
     <ClCompile Include="spieler.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="konsolenAusgabe.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include=".\main2.c">
+    <ClCompile Include=".\ausgabe.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
