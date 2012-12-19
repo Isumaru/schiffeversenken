@@ -55,13 +55,13 @@ int main(){
 	}
 	//Abfrage der Schiffsgroeﬂen und Anzahl , erzeugen der schiffe
 	printf("Vergfuegbare Schiffe:\n\tSchlachtschiff\n\tKreuzer\n\tZerstoerer\n\tU-Boote\n");
-	printf("\nAnzahl der Schlachtschiffe :");
+	printf("\nAnzahl der Schlachtschiffe(Minimum 1) :");
 	while(scanf("%d",&schlachta)!=1||schlachta<1){
 		while (getchar() != '\n');
 	}
 	sp1schlacht= malloc(schlachta * sizeof(int *));
 	sp2schlacht= malloc(schlachta * sizeof(int *));
-	printf("Groesse der Schlachtschiffe?: ");
+	printf("Groesse der Schlachtschiffe(Minimum 1): ");
 	while(scanf("%d",&schlachtg)!=1||schlachtg<1){
 		while (getchar() != '\n');
 	}
@@ -75,13 +75,13 @@ int main(){
 	}
 	zaehler+=1;
 	//Abfrage der Schiffsgroeﬂen und Anzahl , erzeugen der schiffe setzen der ID
-	printf("Anzahl der Kreuzer: ");
+	printf("Anzahl der Kreuzer(Minimum 1): ");
 	while(scanf("%d",&kreuzera)!=1||kreuzera==0){
 		while (getchar() != '\n');
 	}
 	sp1kreuzer= malloc(kreuzera * sizeof(int *));
 	sp2kreuzer= malloc(kreuzera * sizeof(int *));
-	printf("Groesse der Kreuzer?: ");
+	printf("Groesse der Kreuzer(Minimum 1): ");
 	while(scanf("%d",&kreuzerg)!=1||kreuzerg==0){
 		while (getchar() != '\n');
 	}
@@ -94,13 +94,13 @@ int main(){
 	}
 	zaehler+=1;
 	//Abfrage der Schiffsgroeﬂen und Anzahl , erzeugen der schiffe setzen der ID
-	printf("Anzahl der Zerstoerer: ");
+	printf("Anzahl der Zerstoerer(Minimum 1): ");
 	while(scanf("%d",&zerstoerera)!=1||zerstoerera<1){
 		while (getchar() != '\n');
 	}
 	sp1zerstoerer= malloc(zerstoerera * sizeof(int *));
 	sp2zerstoerer= malloc(zerstoerera * sizeof(int *));
-	printf("Groesse der Zerstoerer?: ");
+	printf("Groesse der Zerstoerer(Minimum 1): ");
 	while(scanf("%d",&zerstoererg)!=1||zerstoererg<1){
 		while (getchar() != '\n');
 	}
@@ -113,13 +113,13 @@ int main(){
 	}
 	zaehler+=1;
 	//Abfrage der Schiffsgroeﬂen und Anzahl , erzeugen der schiffe setzen der ID
-	printf("Anzahl der U-Boote: ");
+	printf("Anzahl der U-Boote(Minimum 1): ");
 	while(scanf("%d",&uboota)!=1||uboota<1){
 		while (getchar() != '\n');
 	}
 	sp1uboot= malloc(uboota * sizeof(int *));
 	sp2uboot= malloc(uboota * sizeof(int *));
-	printf("Groesse der U-Boote?: ");
+	printf("Groesse der U-Boote(Minimum 1): ");
 	while(scanf("%d",&ubootg)!=1||ubootg<1){
 		while (getchar() != '\n');
 	}
@@ -154,11 +154,14 @@ int main(){
 	for(i=0;i<schlachta;i++){
 		printf("%d.Schiff setzen\nStartpunkt ? ",i+1);
 		scanf("%s",p1);
-		while(isalpha(p1[0])==0||isalpha(p1[1])!=0){
+		while((isalpha(p1[0])==0||isalpha(p1[1])!=0)){
 			scanf("%s",p1);
 		}
 		printf("Senkrecht(s)/Waagrecht(w)? ");
 		scanf("%s",p2);
+		while((isalpha(p2[0])==0)){
+			scanf("%s",p2);
+		}
 		c=*sp3feld;
 		fieldbackup=&c;
 		sp3feld=setSchiff(sp3feld,sp3schlacht[i],p1,p2);
@@ -236,10 +239,12 @@ int main(){
 		}
 		showSpielfeld(fieldsize,sp3feld->meinFeld);
 	}
-	// EDITIREN NOCH AUSTESTEN
+	//Abfrage ob/welches Schiff der User editieren mˆchte
+	check=1;
+	while(check==1){
 	printf("Wollen sie ein Schiff editieren J/N?\n");
 	scanf("%s",input);
-	if((strcmp(input,"J")!=0)||((strcmp(input,"j"))!=0)){
+	if((strcmp(input,"J")==0)||((strcmp(input,"j"))==0)){
 		printf("Koordinaten des zu loeschenden Schiffes eingeben(z.b A5):");
 		scanf("%s",p1);
 		while(isalpha(p1[0])==0||isalpha(p1[1])!=0){
@@ -248,8 +253,9 @@ int main(){
 		sp3feld=deleteSchiff(fieldsize,sp3feld,p1,sp3schlacht,sp3kreuzer,sp3uboot,sp3zerstoerer);
 		c=*sp3feld;
 		fieldbackup=&c;
-		check=1;
-		while(check==1){
+		run=1;
+		//Abfragen der neuen Koordinaten
+		while(run==1){
 			printf("Neuer Schiffstartpunkt(z.b A5): ");
 			scanf("%s",p1);
 			while(isalpha(p1[0])==0||isalpha(p1[1])!=0){
@@ -262,12 +268,11 @@ int main(){
 			if(sp3feld==NULL){
 				sp3feld=fieldbackup;
 				printf("Sie koennen nicht Schiffe ueber andere Schiffe legen bzw auﬂerhalb der Karte\n");
-			}else check=0;
+			}else run=0;
 			showSpielfeld(fieldsize,sp3feld->meinFeld);
 		}
+		}else check=0;
 	}
-	getchar();
-	getchar();
 	CLEAR;
 	}
 	run=1;
