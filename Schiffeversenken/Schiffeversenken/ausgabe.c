@@ -70,7 +70,9 @@ int main(){
 		sp2schlacht[i]=makeSchiff(schlachtg,schlachtg);
 		zaehler = zaehler+i;
 		sp1schlacht[i]->ID=zaehler;
+		sp1schlacht[i]->anzahl=schlachta;
 		sp2schlacht[i]->ID=zaehler;
+		sp2schlacht[i]->anzahl=schlachta;
 		
 	}
 	zaehler+=1;
@@ -91,6 +93,8 @@ int main(){
 		zaehler = zaehler+i;
 		sp1kreuzer[i]->ID=zaehler;
 		sp2kreuzer[i]->ID=zaehler;
+		sp1kreuzer[i]->anzahl=kreuzera;
+		sp2kreuzer[i]->anzahl=kreuzera;
 	}
 	zaehler+=1;
 	//Abfrage der Schiffsgroeßen und Anzahl , erzeugen der schiffe setzen der ID
@@ -110,6 +114,8 @@ int main(){
 		zaehler = zaehler+i;
 		sp1zerstoerer[i]->ID=zaehler;
 		sp2zerstoerer[i]->ID=zaehler;
+		sp1zerstoerer[i]->anzahl=zerstoerera;
+		sp2zerstoerer[i]->anzahl=zerstoerera;
 	}
 	zaehler+=1;
 	//Abfrage der Schiffsgroeßen und Anzahl , erzeugen der schiffe setzen der ID
@@ -129,6 +135,8 @@ int main(){
 		zaehler = zaehler+i;
 		sp1uboot[i]->ID=zaehler;
 		sp2uboot[i]->ID=zaehler;
+		sp1uboot[i]->anzahl=uboota;
+		sp2uboot[i]->anzahl=uboota;
 	}
 	CLEAR;
 	//Schleife für das Setzen der Schiffe für sp1/2
@@ -291,6 +299,7 @@ int main(){
 			//Ueberpruefen ob ein Schiff getroffen wurde
 			if(trifftSchuss(sp2feld,p1)==0){
 				sp1->wTreffer+=1;
+				CLEAR;
 				printf("Sie haben leider nicht getroffen\n");
 				run2=0;
 			}else{
@@ -314,7 +323,6 @@ int main(){
 	   }
 		//Schleife für Spieler 2
 		while(run3==1){
-			CLEAR;
 			printf("%s ist an der Reihe\n",sp2->name);
 			showSpielfeld(fieldsize,sp2feld->seinFeld);
 			//Abfrage der Schuss Koordinaten

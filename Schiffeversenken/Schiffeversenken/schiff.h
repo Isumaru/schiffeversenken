@@ -4,8 +4,7 @@ struct schiff{
 	int ID;
 	int size;		
 	int life;
-	int kordx;
-	int kordy;
+	int anzahl;
 };
 struct schiff* makeSchiff(int size,int life);
 #endif

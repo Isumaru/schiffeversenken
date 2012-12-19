@@ -10,7 +10,3 @@ struct schiff* makeSchiff(int size,int life){
 	myschiff->life=life;
 	return myschiff;
 }
-void addKord(struct schiff *a,int x, int y){
-	a->kordy=y;
-	a->kordx=x;
-}

@@ -10,21 +10,22 @@ int trifftSchuss(struct spielfeld*his,char schuss[2]){
 	for(i=0;i<sizeof(alp);i++){
 		if(alp[i]==toupper(schuss[0])){
 			xo=i;
+			//Uebrpruefen ob das Feld Wasser ist
+			if(his->meinFeld[xo][y]==0)
+				return 0;
 			i=sizeof(alp);
 		}
 	}
-	//Uebrpruefen ob das Feld Wasser ist
-	if(his->meinFeld[xo][y]==0)
-		return 0;
 	return 1;
 }
 struct spielfeld* deleteSchiff(int size,struct spielfeld* my,char pos[2],struct schiff**a,struct schiff**b,struct schiff**c,struct schiff**d){
 	int a1,b1,c1,d1,id,xo,i,z,y=atoi(&pos[1])-1;
 	struct schiff* e;
-	a1=a[0]->size;
-	b1=b[0]->size;
-	c1=c[0]->size;
-	d1=d[0]->size;
+	a1=a[0]->anzahl;
+	b1=b[0]->anzahl;
+	c1=c[0]->anzahl;
+	d1=d[0]->anzahl;
+	//Uebergebenen Buchstaben in int umwandeln
 	for(i=0;i<sizeof(alp);i++){
 		if(alp[i]==toupper(pos[0])){
 			xo=i;
@@ -62,40 +63,38 @@ struct spielfeld* deleteSchiff(int size,struct spielfeld* my,char pos[2],struct 
 }
 int checkWin(struct schiff**a,struct schiff**b,struct schiff**c,struct schiff**d){
 	int i,a1,b1,c1,d1;
-	a1=a[0]->size;
-	b1=b[0]->size;
-	c1=c[0]->size;
-	d1=d[0]->size;
+	a1=a[0]->anzahl;
+	b1=b[0]->anzahl;
+	c1=c[0]->anzahl;
+	d1=d[0]->anzahl;
 
 	for(i=0;i<a1;i++)
-		if(a[i]->life!=0)
+		if(a[i]->life>0)
 			return 0;
 	for(i=0;i<b1;i++)
-		if(b[i]->life!=0)
+		if(b[i]->life>0)
 			return 0;
 	for(i=0;i<c1;i++)
-		if(c[i]->life!=0)
+		if(c[i]->life>0)
 			return 0;
 	for(i=0;i<d1;i++)
-		if(d[i]->life!=0)
+		if(d[i]->life>0)
 			return 0;
 	return 1;
 }
 struct spielfeld* shootSchiff(struct spielfeld*my,struct spielfeld*his,char schuss[2],struct schiff**a,struct schiff**b,struct schiff**c,struct schiff**d){
 	struct schiff* e;
 	int a1,b1,c1,d1,p,xo,i,y=atoi(&schuss[1])-1;
-	a1=a[0]->size;
-	b1=b[0]->size;
-	c1=c[0]->size;
-	d1=d[0]->size;
+	a1=a[0]->anzahl;
+	b1=b[0]->anzahl;
+	c1=c[0]->anzahl;
+	d1=d[0]->anzahl;
+	//Uebergebenen Buchstaben in int umwandeln
 	for(i=0;i<sizeof(alp);i++){
-		if(alp[i]==schuss[0]){
+		if(alp[i]==toupper(schuss[0])){
 			xo=i;
 			i=sizeof(alp);
 		}
-	}
-	if(trifftSchuss(his,schuss)==0){
-		return NULL;
 	}
 	p=his->meinFeld[xo][y];
 	//Ueberpruefen ob ein Schiff getroffen wurde
@@ -104,45 +103,44 @@ struct spielfeld* shootSchiff(struct spielfeld*my,struct spielfeld*his,char schu
 			e=a[i];
 			i=a1;
 		}
-	else for(i=0;i<b1;i++)
+	for(i=0;i<b1;i++)
 		if(p==b[i]->ID){
 			e=b[i];
 			i=b1;
 		}
-	else for(i=0;i<c1;i++)
+	for(i=0;i<c1;i++)
 		if(p==c[i]->ID){
 			e=c[i];
 			i=c1;
 		}
-	else for(i=0;i<d1;i++)
+	for(i=0;i<d1;i++)
 		if(p==d[i]->ID){
 			e=d[i];
 			i=d1;
 		}
 	e->life-=1;
-
 	my->a=e;
 	my->seinFeld[xo][y]=1;
 	return my;
 }
 struct spielfeld* setSchiff(struct spielfeld*a,struct schiff*b,char start[2],char ws[1]){
 	int xo,i,y=atoi(&start[1])-1;
-	//c=*a;
-	//d=&c;
+	//Uebergebenen Buchstaben in int umwandeln
 	for(i=0;i<sizeof(alp);i++){
 		if(alp[i]==toupper(start[0])){
 			xo=i;
 			i=sizeof(alp);
 		}
 	}
-	if(ws[0]=='w'){
+	//Ueberpruefen ob Waagrecht oder Senkrecht ausgwählt wurde
+	if(toupper(ws[0])=='W'){
 		for(i=0;i<b->size;i++)
 			if(a->meinFeld[xo][y+i]!=0)
 				return NULL;	
 		for(i=0;i<b->size;i++)
 			a->meinFeld[xo][y+i]=b->ID;
 	}
-	if(ws[0]=='s'){
+	if(toupper(ws[0])=='S'){
 		for(i=0;i<b->size;i++)
 			if(a->meinFeld[xo+i][y]!=0)
 				return NULL;
