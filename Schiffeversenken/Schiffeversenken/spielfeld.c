@@ -18,6 +18,48 @@ int trifftSchuss(struct spielfeld*his,char schuss[2]){
 		return 0;
 	return 1;
 }
+struct spielfeld* deleteSchiff(int size,struct spielfeld* my,char pos[2],struct schiff**a,struct schiff**b,struct schiff**c,struct schiff**d){
+	int a1,b1,c1,d1,id,xo,i,z,y=atoi(&pos[1])-1;
+	struct schiff* e;
+	a1=a[0]->size;
+	b1=b[0]->size;
+	c1=c[0]->size;
+	d1=d[0]->size;
+	for(i=0;i<sizeof(alp);i++){
+		if(alp[i]==toupper(pos[0])){
+			xo=i;
+			i=sizeof(alp);
+		}
+	}
+	id=my->meinFeld[xo][y];
+	for(z=0;z<size;z++)
+		for(i=0;i<size;i++)
+			if(my->meinFeld[z][i]==id)
+				my->meinFeld[z][i]=0;
+	//Ueberpruefen ob ein Schiff getroffen wurde
+	for(i=0;i<a1;i++)
+		if(id==a[i]->ID){
+			e=a[i];
+			i=a1;
+		}
+	else for(i=0;i<b1;i++)
+		if(id==b[i]->ID){
+			e=b[i];
+			i=b1;
+		}
+	else for(i=0;i<c1;i++)
+		if(id==c[i]->ID){
+			e=c[i];
+			i=c1;
+		}
+	else for(i=0;i<d1;i++)
+		if(id==d[i]->ID){
+			e=d[i];
+			i=d1;
+		}
+	my->a=e;
+	return  my;
+}
 int checkWin(struct schiff**a,struct schiff**b,struct schiff**c,struct schiff**d){
 	int i,a1,b1,c1,d1;
 	a1=a[0]->size;

@@ -6,6 +6,7 @@ struct spielfeld{
 	int size;
 	struct schiff* a;
 };
+struct spielfeld* deleteSchiff(int size,struct spielfeld*my,char pos[2],struct schiff**a,struct schiff**b,struct schiff**c,struct schiff**d);
 int checkWin(struct schiff**a,struct schiff**b,struct schiff**c,struct schiff**d);
 struct spielfeld* shootSchiff(struct spielfeld*my,struct spielfeld*his,char schuss[2],struct schiff**a,struct schiff**b,struct schiff**c,struct schiff**d);
 int trifftSchuss(struct spielfeld*his,char schuss[2]);

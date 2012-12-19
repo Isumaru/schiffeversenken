@@ -14,7 +14,7 @@ int main(){
 	struct spielfeld *sp1feld,*sp2feld,*sp3feld,*fieldbackup;
 	struct schiff **sp1schlacht,**sp2schlacht,**sp1kreuzer,**sp2kreuzer,**sp1zerstoerer,**sp2zerstoerer,**sp1uboot,**sp2uboot;
 	struct schiff **sp3schlacht,**sp3kreuzer,**sp3zerstoerer,**sp3uboot;
-	int input2,game=1,zaehler=1,z,id,i,fieldsize,run=1,run2,run3,schlachta,schlachtg,kreuzera,kreuzerg,zerstoerera,zerstoererg,ubootg,uboota;
+	int check,input2,game=1,zaehler=1,z,id=0,i,fieldsize,run=1,run2,run3,schlachta,schlachtg,kreuzera,kreuzerg,zerstoerera,zerstoererg,ubootg,uboota;
 	// "GUI" 
 	while(game==1){
 	printf("1. Spiel starten -> 1 eintippen\n2. Highscore anzeigen -> 2 eintippen \n3. Programm beenden  -> 3 eintippen\n");
@@ -236,6 +236,38 @@ int main(){
 		}
 		showSpielfeld(fieldsize,sp3feld->meinFeld);
 	}
+	// EDITIREN NOCH AUSTESTEN
+	printf("Wollen sie ein Schiff editieren J/N?\n");
+	scanf("%s",input);
+	if((strcmp(input,"J")!=0)||((strcmp(input,"j"))!=0)){
+		printf("Koordinaten des zu loeschenden Schiffes eingeben(z.b A5):");
+		scanf("%s",p1);
+		while(isalpha(p1[0])==0||isalpha(p1[1])!=0){
+			scanf("%s",p1);
+		}
+		sp3feld=deleteSchiff(fieldsize,sp3feld,p1,sp3schlacht,sp3kreuzer,sp3uboot,sp3zerstoerer);
+		c=*sp3feld;
+		fieldbackup=&c;
+		check=1;
+		while(check==1){
+			printf("Neuer Schiffstartpunkt(z.b A5): ");
+			scanf("%s",p1);
+			while(isalpha(p1[0])==0||isalpha(p1[1])!=0){
+				scanf("%s",p1);
+			}
+			printf("Senkrecht(s)/Waagrecht(w)? ");
+			scanf("%s",p2);
+			sp3feld=setSchiff(sp3feld,sp3feld->a,p1,p2);
+			//Ueberpruefen ob Koordinaten außerhalb des Feldes bzw auf andern Schiff liegt
+			if(sp3feld==NULL){
+				sp3feld=fieldbackup;
+				printf("Sie koennen nicht Schiffe ueber andere Schiffe legen bzw außerhalb der Karte\n");
+			}else check=0;
+			showSpielfeld(fieldsize,sp3feld->meinFeld);
+		}
+	}
+	getchar();
+	getchar();
 	CLEAR;
 	}
 	run=1;
